@@ -8,175 +8,132 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0056b3;
+            --primary: #0f172a;
+            --brand: #0284c7;
             --secondary: #d4af37;
+            --whatsapp: #25d366;
             --dark: #1e293b;
             --light: #f8fafc;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-        }
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        
+        /* Top Bar */
+        .top-bar { background: var(--primary); color: white; padding: 8px 0; font-size: 0.9rem; }
+        .top-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem; flex-wrap: wrap; gap: 10px; }
+        .top-contacts { display: flex; gap: 15px; }
+        .top-contacts a { color: #e2e8f0; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+        
         /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        .logo span {
-            color: var(--secondary);
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+        header { background: rgba(255, 255, 255, 0.98); position: sticky; top: 0; width: 100%; z-index: 999; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 700; transition: 0.3s; }
+        .nav-links a:hover { color: var(--brand); }
+
         /* Hero Section */
         .hero {
-            height: 90vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+            height: 80vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)), 
                         url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 1rem;
-            margin-top: 60px;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 1rem;
         }
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
+        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .hero-content p { font-size: 1.25rem; margin-bottom: 2rem; max-width: 650px; margin-left: auto; margin-right: auto; }
+        
+        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 0.8rem 1.8rem; border-radius: 30px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
+        .btn-secondary { background: var(--secondary); color: var(--primary); }
+        .btn-secondary:hover { background: #b89528; transform: translateY(-3px); }
+        .btn-whatsapp { background: var(--whatsapp); color: white; }
+        .btn-whatsapp:hover { background: #1eb954; transform: translateY(-3px); }
+
+        /* General Section Styles */
+        section { padding: 4rem 1.5rem; }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--primary); font-weight: 800; }
+        .section-subtitle { text-align: center; color: #64748b; margin-bottom: 3rem; font-size: 1.1rem; }
+
+        /* Hajj & Umrah Packages Section */
+        .hajj-umrah-section { background: #f1f5f9; }
+        .packages-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        
+        .package-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; border: 1px solid #e2e8f0; position: relative; }
+        .package-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .package-badge { position: absolute; top: 15px; right: 15px; background: var(--secondary); color: var(--primary); font-weight: 800; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; }
+        .package-img { height: 200px; background-size: cover; background-position: center; }
+        .package-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .package-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--primary); }
+        .package-features { list-style: none; margin: 1rem 0 1.5rem 0; flex-grow: 1; }
+        .package-features li { margin-bottom: 0.6rem; color: #475569; display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+        .package-features li i { color: #16a34a; }
+        .package-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; }
+        .package-price { font-size: 1.2rem; font-weight: 800; color: var(--brand); }
+
+        /* Services Grid */
+        .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .service-card { background: white; border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card i { font-size: 2.8rem; color: var(--brand); margin-bottom: 1rem; }
+
+        /* Owner Section */
+        .about-owner { background: linear-gradient(135deg, #0f172a, #1e293b); color: white; text-align: center; }
+        .owner-card { max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+        .owner-card h2 { color: var(--secondary); margin-bottom: 1rem; }
+
+        /* Contact Section */
+        .contact-container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .contact-box { background: #f8fafc; padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 15px; }
+        .contact-box i { font-size: 2rem; color: var(--brand); }
+
+        /* Floating WhatsApp Button */
+        .float-wa {
+            position: fixed; bottom: 25px; left: 25px; background-color: var(--whatsapp); color: white;
+            border-radius: 50px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
+            font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; transition: 0.3s;
         }
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .btn {
-            background: var(--secondary);
-            color: var(--dark);
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-            display: inline-block;
-        }
-        .btn:hover {
-            background: #b89528;
-            transform: translateY(-3px);
-        }
-        /* Services Section */
-        .services {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
-            position: relative;
-        }
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
-            text-align: center;
-            padding: 2rem 1.5rem;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        .card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        .card h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        /* Owner Info Section */
-        .about-owner {
-            background: #e2e8f0;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        .owner-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            border-right: 6px solid var(--secondary);
-        }
+        .float-wa:hover { transform: scale(1.1); }
+
+        /* Booking Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center; padding: 1rem; }
+        .modal-content { background: white; width: 100%; max-width: 500px; border-radius: 16px; padding: 2rem; position: relative; }
+        .close-modal { position: absolute; top: 15px; left: 20px; font-size: 1.5rem; cursor: pointer; color: #64748b; }
+        .modal-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+        .modal-form input, .modal-form select { padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; outline: none; }
+
         /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
+        footer { background: #090d16; color: #94a3b8; text-align: center; padding: 2rem; }
+
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 2rem; }
             .nav-links { display: none; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .top-container { justify-content: center; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- القائمة العلوية -->
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-container">
+            <div><i class="fa-solid fa-location-dot"></i> كفر الشيخ - مصر</div>
+            <div class="top-contacts">
+                <a href="tel:01009264209"><i class="fa-solid fa-phone"></i> 01009264209</a>
+                <a href="https://wa.me/201099141325" target="_blank"><i class="fa-brands fa-whatsapp"></i> 01099141325</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Hatem<span>Trips</span></a>
             <ul class="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#hajj-umrah">الحج والعمرة</a></li>
                 <li><a href="#services">خدماتنا</a></li>
                 <li><a href="#about">عن الشركة</a></li>
                 <li><a href="#contact">تواصل معنا</a></li>
@@ -184,61 +141,255 @@
         </div>
     </header>
 
-    <!-- واجهة الموقع -->
+    <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>استكشف العالم مع HatemTrips</h1>
-            <p>وجهتك الأولى لرحلات الحج والعمرة والرحلات السياحية لجميع دول العالم بأفضل الأسعار وأعلى مستويات الراحة.</p>
-            <a href="#contact" class="btn">احجز رحلتك الآن</a>
+            <h1>رحلات الحج والعمرة مع HatemTrips</h1>
+            <p>وجهتك الأولى لخدمات الحج والعمرة والسفر الدولي. نرافقك في رحلتك الإيمانية والسياحية بأفضل المعايير وأرقى الخدمات.</p>
+            <div class="btn-group">
+                <a href="#hajj-umrah" class="btn btn-secondary"><i class="fa-solid fa-kaaba"></i> استعرض رحلات العمرة والحج</a>
+                <a href="https://wa.me/201009264209" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> حجز سريع عبر الواتساب</a>
+            </div>
         </div>
     </section>
 
-    <!-- الأقسام والخدمات -->
-    <section class="services" id="services">
-        <h2 class="section-title">خدماتنا المتميزة</h2>
-        <div class="cards-grid">
-            <div class="card">
-                <i class="fa-solid => fa-kaaba"></i>
-                <i class="fa-solid fa-kaaba"></i>
-                <h3>الحج والعمرة</h3>
-                <p>برامج مخصصة لعمرة رمضان وشعبان وكافة أشهر السنة بالإضافة إلى برامج الحج الفاخر والاقتصادي.</p>
+    <!-- Hajj & Umrah Packages Section -->
+    <section class="hajj-umrah-section" id="hajj-umrah">
+        <h2 class="section-title">برامج الحج والعمرة 🕌</h2>
+        <p class="section-subtitle">اختر البرنامج المناسب لك واشترك معنا بسهولة</p>
+        
+        <div class="packages-grid">
+            
+            <!-- Package 1 -->
+            <div class="package-card">
+                <span class="package-badge">الأكثر طلباً</span>
+                <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="package-body">
+                    <h3 class="package-title">برنامج العمرة الاقتصادية</h3>
+                    <p style="color: #64748b; font-size: 0.9rem;">15 يوماً من الراحة والسكينة في البقاع المقدسة</p>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-circle-check"></i> طيران مباشر (ذهاب وإياد)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> فنادق قريبة من الحرمين الشريفين</li>
+                        <li><i class="fa-solid fa-circle-check"></i> مشرف متخصص للرحلة طوال فترة الإقامة</li>
+                        <li><i class="fa-solid fa-circle-check"></i> الانتقالات بأتوبيسات حديثة ومكيفة</li>
+                    </ul>
+                    <div class="package-footer">
+                        <span class="package-price">تواصل للتفاصيل</span>
+                        <button class="btn btn-secondary" onclick="openBookingModal('عمرة اقتصادية')">احجز الآن</button>
+                    </div>
+                </div>
             </div>
-            <div class="card">
+
+            <!-- Package 2 -->
+            <div class="package-card">
+                <span class="package-badge">VIP</span>
+                <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="package-body">
+                    <h3 class="package-title">برنامج العمرة الممتازة 5 نجوم</h3>
+                    <p style="color: #64748b; font-size: 0.9rem;">إقامة راقية ومطلة مباشرة على الحرم المكي</p>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-circle-check"></i> فنادق 5 نجوم صف أول على الحرم</li>
+                        <li><i class="fa-solid fa-circle-check"></i> وجبات بوفيه مفتوح (إفطار وعشاء)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> استخراج التأشيرة وتصاريح الروضة</li>
+                        <li><i class="fa-solid fa-circle-check"></i> هدايا ومصاحف لكافة المعتمرين</li>
+                    </ul>
+                    <div class="package-footer">
+                        <span class="package-price">تواصل للتفاصيل</span>
+                        <button class="btn btn-secondary" onclick="openBookingModal('عمرة 5 نجوم')">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="package-card">
+                <span class="package-badge">موسم الحج</span>
+                <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="package-body">
+                    <h3 class="package-title">برنامج الحج الفاخر</h3>
+                    <p style="color: #64748b; font-size: 0.9rem;">أداء مناسك الحج بأقصى درجات الراحة والتنظيم</p>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-circle-check"></i> مخيمات مكيفة ومجهزة في منى وعرفة</li>
+                        <li><i class="fa-solid fa-circle-check"></i> إرشاد ديني مع علماء متخصصين</li>
+                        <li><i class="fa-solid fa-circle-check"></i> إعاشة كاملة وخدمة 24/7</li>
+                        <li><i class="fa-solid fa-circle-check"></i> وسائل نقل خاصة ومريحة بين المشاعر</li>
+                    </ul>
+                    <div class="package-footer">
+                        <span class="package-price">تواصل للتفاصيل</span>
+                        <button class="btn btn-secondary" onclick="openBookingModal('برنامج الحج')">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section id="services">
+        <h2 class="section-title">خدمات الشركة الأخرى</h2>
+        <p class="section-subtitle">كل ما تحتاجه للسفر في مكان واحد</p>
+        <div class="services-grid">
+            <div class="service-card">
                 <i class="fa-solid fa-plane-departure"></i>
-                <h3>السفر الدولي</h3>
-                <p>تنظيم رحلات سياحية متكاملة لجميع دول العالم مع استخراج التأشيرات وحجز الطيران والفنادق.</p>
+                <h3>حجز تذاكر الطيران</h3>
+                <p>نوفر لكم أفضل أسعار تذاكر الطيران لجميع خطوط الطيران العالمية والمحلية.</p>
             </div>
-            <div class="card">
+            <div class="service-card">
                 <i class="fa-solid fa-hotel"></i>
                 <h3>حجوزات الفنادق</h3>
-                <p>نوفر لك أفضل الفنادق حول العالم وفي البقاع المقدسة بأسعار تنافسية وخدمات عالية الجودة.</p>
+                <p>تأكيد فوري لحجوزات الفنادق في مكة والمدينة وكافة دول العالم.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-passport"></i>
+                <h3>استخراج التأشيرات</h3>
+                <p>تسهيل وتجهيز كافة أوراق تأشيرات العمرة والسياحة لجميع الدول.</p>
             </div>
         </div>
     </section>
 
-    <!-- معلومات إدارة الشركة -->
+    <!-- Owner Section -->
     <section class="about-owner" id="about">
         <div class="owner-card">
-            <h2>رؤيتنا وقيادتنا</h2>
-            <p style="margin-top: 1rem; font-size: 1.1rem; color: #475569;">
-                تدار شركة <strong>HatemTrips</strong> ببركـة وإشراف صاحب الشركة 
+            <h2>إدارة وقيادة الشركة</h2>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">
+                تدار شركة <strong>HatemTrips</strong> بإشراف:
                 <br>
-                <span style="font-weight: 800; color: var(--primary); font-size: 1.3rem;">الأستاذ حاتم محمد خميس نصار</span>
+                <span style="font-size: 1.6rem; font-weight: 800; color: var(--secondary); display: block; margin-top: 0.5rem;">الأستاذ / حاتم محمد خميس نصار</span>
             </p>
-            <p style="margin-top: 0.5rem; color: #64748b;">
-                نسعى دائماً لتقديم أقصى درجات الراحة والأمان لعملائنا الكرام في كافة رحلاتهم حول العالم.
+            <p style="margin-top: 1rem; color: #cbd5e1; font-size: 0.95rem;">
+                نلتزم بتقديم أفضل خدمة لضيوف الرحمن والمسافرين، مع ضمان الصدق والشفافية التامة في كافة البرامج.
             </p>
         </div>
     </section>
 
-    <!-- الفوتر والتواصل -->
-    <footer id="contact">
-        <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">تواصل معنا للجز والاستفسار</p>
-        <p><i class="fa-solid fa-phone"></i> متواجدون لخدمتكم طوال الأسبوع</p>
-        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #94a3b8;">
-            جميع الحقوق محفوظة © 2026 HatemTrips
-        </p>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">تواصل معنا مباشرة</h2>
+        <p class="section-subtitle">نحن متواجدون لخدمتك ومساعدتك في اختيار برنامجك</p>
+        
+        <div class="contact-container">
+            <div class="contact-grid">
+                
+                <div class="contact-box">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <div>
+                        <strong style="display:block;">الهاتف الأول:</strong>
+                        <a href="tel:01009264209" style="text-decoration:none; color:var(--dark); font-weight:700;">01009264209</a>
+                    </div>
+                </div>
+
+                <div class="contact-box">
+                    <i class="fa-brands fa-whatsapp" style="color:#25d366;"></i>
+                    <div>
+                        <strong style="display:block;">واتساب الهواتف:</strong>
+                        <a href="https://wa.me/201099141325" target="_blank" style="text-decoration:none; color:var(--dark); font-weight:700;">01099141325</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://wa.me/201009264209" target="_blank" class="btn btn-whatsapp" style="font-size: 1.1rem;">
+                    <i class="fa-brands fa-whatsapp"></i> اضغط هنا لبدء محادثة مباشرة على واتساب
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/201009264209" class="float-wa" target="_blank" title="تواصل عبر الواتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Booking Modal / Popup -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBookingModal()">&times;</span>
+            <h3 style="color:var(--primary); font-size:1.4rem;">حجز برنامج: <span id="modalPackageName" style="color:var(--brand);"></span></h3>
+            <p style="color:#64748b; font-size:0.9rem; margin-top:4px;">يرجى أدخال بياناتك وسيتم توجيهك للواتساب لإتمام الحجز فوراً</p>
+            
+            <form class="modal-form" onsubmit="submitBooking(event)">
+                <input type="text" id="clientName" placeholder="الاسم بالكامل" required>
+                <input type="tel" id="clientPhone" placeholder="رقم الهاتف" required>
+                <select id="personCount">
+                    <option value="1">فرد واحد</option>
+                    <option value="2">فردين</option>
+                    <option value="3">3 أفراد</option>
+                    <option value="4 وأكثر">عائلة (4 أفراد أو أكثر)</option>
+                </select>
+                <button type="submit" class="btn btn-whatsapp" style="justify-content: center; width: 100%;">
+                    <i class="fa-brands fa-whatsapp"></i> إرسال الحجز عبر الواتساب
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 HatemTrips - الأستاذ حاتم محمد خميس نصار</p>
     </footer>
 
+    <!-- JavaScript For Modal & Booking Logic -->
+    <script>
+        let selectedPackage = '';
+
+        function openBookingModal(packageName) {
+            selectedPackage = packageName;
+            document.getElementById('modalPackageName').innerText = packageName;
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        function submitBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const count = document.getElementById('personCount').value;
+
+            // بناء رسالة الواتساب المباشرة
+            const message = `مرحباً شركة HatemTrips، أود الاستفسار والحجز لـ (${selectedPackage}).%0A%0A*الاسم:* ${name}%0A*رقم الهاتف:* ${phone}%0A*عدد الأفراد:* ${count}`;
+            
+            // فتح الواتساب فوراً للرقم الأول
+            window.open(`https://wa.me/201009264209?text=${message}`, '_blank');
+            closeBookingModal();
+        }
+
+        // إغلاق النافذة عند الضغط خارجها
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target == modal) {
+                closeBookingModal();
+            }
+        }
+    </script><!-- قسم ملكية وإدارة الشركة -->
+<section class="about-owner" id="about">
+    <div class="owner-card" style="text-align: center; background: linear-gradient(135deg, #0f172a, #1e293b); padding: 3rem 2rem; border-radius: 20px; color: white; border: 1px solid rgba(212, 175, 55, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+        <h2 style="color: #d4af37; font-size: 2rem; margin-bottom: 1.5rem; font-weight: 800;">إدارة وملكـية الشـركة 🏛️</h2>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 1.5rem;">
+            
+            <!-- صاحب الشركة والإدارة -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem 2rem; border-radius: 15px; min-width: 280px; flex: 1; border: 1px solid rgba(255,255,255,0.1);">
+                <i class="fa-solid fa-user-tie" style="font-size: 2.5rem; color: #d4af37; margin-bottom: 0.8rem;"></i>
+                <p style="font-size: 1rem; color: #cbd5e1; margin-bottom: 0.3rem;">صاحب الشركة والرئيس التنفيذي</p>
+                <h3 style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">الأستاذ / حاتم محمد خميس نصار</h3>
+            </div>
+
+            <!-- الشريك الإداري والبشمهندس -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem 2rem; border-radius: 15px; min-width: 280px; flex: 1; border: 1px solid rgba(255,255,255,0.1);">
+                <i class="fa-solid fa-laptop-code" style="font-size: 2.5rem; color: #38bdf8; margin-bottom: 0.8rem;"></i>
+                <p style="font-size: 1rem; color: #cbd5e1; margin-bottom: 0.3rem;">صاحب الشركة ومطور النظام</p>
+                <h3 style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">البشمهندس / أحمد حاتم محمد</h3>
+            </div>
+
+        </div>
+
+        <p style="margin-top: 2rem; color: #94a3b8; font-size: 0.95rem; line-height: 1.8;">
+            نعمل معاً لتقديم أفضل خدمات الحج والعمرة والسياحة الدولية لضيوف الرحمن والمسافرين بأعلى معايير الجودة والصدق.
+        </p>
+    </div>
+</section>
 </body>
 </html>
