@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HatemTrips | حاتم نصار للسياحة والحج والعمرة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #d4af37;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--secondary);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #b89528;
+            transform: translateY(-3px);
+        }
+        /* Services Section */
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        /* Owner Info Section */
+        .about-owner {
+            background: #e2e8f0;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .owner-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-right: 6px solid var(--secondary);
+        }
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- القائمة العلوية -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Hatem<span>Trips</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#about">عن الشركة</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- واجهة الموقع -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>استكشف العالم مع HatemTrips</h1>
+            <p>وجهتك الأولى لرحلات الحج والعمرة والرحلات السياحية لجميع دول العالم بأفضل الأسعار وأعلى مستويات الراحة.</p>
+            <a href="#contact" class="btn">احجز رحلتك الآن</a>
+        </div>
+    </section>
+
+    <!-- الأقسام والخدمات -->
+    <section class="services" id="services">
+        <h2 class="section-title">خدماتنا المتميزة</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <i class="fa-solid => fa-kaaba"></i>
+                <i class="fa-solid fa-kaaba"></i>
+                <h3>الحج والعمرة</h3>
+                <p>برامج مخصصة لعمرة رمضان وشعبان وكافة أشهر السنة بالإضافة إلى برامج الحج الفاخر والاقتصادي.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-plane-departure"></i>
+                <h3>السفر الدولي</h3>
+                <p>تنظيم رحلات سياحية متكاملة لجميع دول العالم مع استخراج التأشيرات وحجز الطيران والفنادق.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-hotel"></i>
+                <h3>حجوزات الفنادق</h3>
+                <p>نوفر لك أفضل الفنادق حول العالم وفي البقاع المقدسة بأسعار تنافسية وخدمات عالية الجودة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- معلومات إدارة الشركة -->
+    <section class="about-owner" id="about">
+        <div class="owner-card">
+            <h2>رؤيتنا وقيادتنا</h2>
+            <p style="margin-top: 1rem; font-size: 1.1rem; color: #475569;">
+                تدار شركة <strong>HatemTrips</strong> ببركـة وإشراف صاحب الشركة 
+                <br>
+                <span style="font-weight: 800; color: var(--primary); font-size: 1.3rem;">الأستاذ حاتم محمد خميس نصار</span>
+            </p>
+            <p style="margin-top: 0.5rem; color: #64748b;">
+                نسعى دائماً لتقديم أقصى درجات الراحة والأمان لعملائنا الكرام في كافة رحلاتهم حول العالم.
+            </p>
+        </div>
+    </section>
+
+    <!-- الفوتر والتواصل -->
+    <footer id="contact">
+        <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">تواصل معنا للجز والاستفسار</p>
+        <p><i class="fa-solid fa-phone"></i> متواجدون لخدمتكم طوال الأسبوع</p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #94a3b8;">
+            جميع الحقوق محفوظة © 2026 HatemTrips
+        </p>
+    </footer>
+
+</body>
+</html>
