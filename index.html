@@ -106,16 +106,36 @@
         /* Footer */
         footer { background: #090d16; color: #94a3b8; text-align: center; padding: 2rem; }
 
-        @media (max-width: 768px) {
-    .hero-content h1 { font-size: 2rem; }
-    .nav-links { 
-        display: flex; 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 0.8rem; 
-        font-size: 0.9rem; 
-        padding: 0.5rem 0;
+        .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
     }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        gap: 1rem;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .hero-content h1 { font-size: 2rem; }
     .contact-grid { grid-template-columns: 1fr; }
     .top-container { justify-content: center; text-align: center; }
 }
@@ -138,7 +158,8 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Hatem<span>Trips</span></a>
-            <ul class="nav-links">
+            <button class="menu-toggle" id="mobile-menu">☰</button>
+<ul class="nav-links" id="nav-list">
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#hajj-umrah">الحج والعمرة</a></li>
                 <li><a href="#services">خدماتنا</a></li>
@@ -398,6 +419,14 @@
         </p>
     </div>
 </section>
+    <script>
+  const menuBtn = document.getElementById('mobile-menu');
+  const navList = document.getElementById('nav-list');
+
+  menuBtn.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+</script>
     
 </body>
 </html>
