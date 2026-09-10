@@ -107,11 +107,18 @@
         footer { background: #090d16; color: #94a3b8; text-align: center; padding: 2rem; }
 
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2rem; }
-            .nav-links { display: none; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .top-container { justify-content: center; text-align: center; }
-        }
+    .hero-content h1 { font-size: 2rem; }
+    .nav-links { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 0.8rem; 
+        font-size: 0.9rem; 
+        padding: 0.5rem 0;
+    }
+    .contact-grid { grid-template-columns: 1fr; }
+    .top-container { justify-content: center; text-align: center; }
+}
     </style>
 </head>
 <body>
